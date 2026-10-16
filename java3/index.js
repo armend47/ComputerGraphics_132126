@@ -42,8 +42,29 @@ moonMesh.position.x = 0.8;
 moonOrbit.add( moonMesh );
 scene.add( earthOrbit );
 
+const marsOrbit = new THREE.Object3D();
 
-camera.position.z = 5;
+//Marsi
+const marsGeometry = new THREE.SphereGeometry( 0.4, 32, 32 );
+const marsMaterial = new THREE.MeshStandardMaterial( { color: 0xff4500, wireframe: true } );
+const marsMesh = new THREE.Mesh( marsGeometry, marsMaterial );
+marsMesh.position.x = 3.5;
+marsOrbit.add( marsMesh );
+
+//Sateliti i Marsit
+const marsMoonGeometry = new THREE.SphereGeometry( 0.08, 32, 32 );
+const marsMoonMaterial = new THREE.MeshStandardMaterial( { color: 0xaaaaaa, wireframe: true } );
+const marsMoonMesh = new THREE.Mesh( marsMoonGeometry, marsMoonMaterial );
+const marsMoonOrbit = new THREE.Object3D();
+marsMoonOrbit.position.x = 3.5;
+marsOrbit.add( marsMoonOrbit );
+
+marsMoonMesh.position.x = 0.6;
+marsMoonOrbit.add( marsMoonMesh );
+scene.add( marsOrbit );
+
+
+camera.position.z = 8;
 
 
 
@@ -63,6 +84,10 @@ function animate() {
     earthMesh.rotation.y += 0.01;
     moonMesh.rotation.y += 0.01;
     moonOrbit.rotation.y += 0.03;
+    marsOrbit.rotation.y += 0.006;
+    marsMesh.rotation.y += 0.01;
+    marsMoonMesh.rotation.y += 0.01;
+    marsMoonOrbit.rotation.y += 0.04;
     renderer.render(scene, camera);
 }
 animate();
