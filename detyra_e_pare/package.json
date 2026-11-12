@@ -1,0 +1,18 @@
+{
+  "name": "dhoma-e-cajit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ambient 3D me modele Poly Haven — detyra e parë në Grafikë Kompjuterike.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "three": "^0.181.1"
+  },
+  "devDependencies": {
+    "vite": "^7.2.2"
+  }
+}
